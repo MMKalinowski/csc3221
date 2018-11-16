@@ -1,7 +1,8 @@
 #pragma once
 
 
-class Piece {
-	public:
-		~Piece() {}
+class Piece
+{
+public:
+	~Piece() {}
 };
