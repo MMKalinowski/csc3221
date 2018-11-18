@@ -12,6 +12,8 @@ class Piece
 	~Piece() {}
 
 	virtual Position move() = 0;
+	//test if works
+
 	virtual bool collision(Position pos) = 0;
 
 	private:
