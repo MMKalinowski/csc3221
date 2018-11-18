@@ -1,5 +1,6 @@
 #include <iostream>
 
-void main() {
+void main()
+{
 	std::cout << "Test" << std::endl;
 }
