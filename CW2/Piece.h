@@ -11,8 +11,8 @@ class Piece
 	public:
 	~Piece() {}
 
-	virtual int move() = 0;
-	virtual bool collision() = 0;
+	virtual Position move() = 0;
+	virtual bool collision(Position pos) = 0;
 
 	private:
 	Position position;
