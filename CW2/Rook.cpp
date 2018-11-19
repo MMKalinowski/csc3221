@@ -1,6 +1,8 @@
 #include "Rook.h"
 #include <iostream>
 
+int Rook::captures = 0;
+
 Rook::Rook(Position pos, int sideL)
 : Piece(pos)
 , sideL(sideL)

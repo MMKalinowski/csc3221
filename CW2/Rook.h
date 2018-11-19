@@ -11,4 +11,5 @@ class Rook : public Piece
 
 	private:
 	int sideL = 1;
+	static int captures;
 };
