@@ -2,25 +2,26 @@
 #include <cmath>
 #include <iostream>
 
+int Bishop::captures = 0;
+
 Bishop::Bishop(Position pos, int radius)
 : Piece(pos)
 , radius(radius)
 {}
 
-Position Bishop::move(float x, float y)
+Position Bishop::move(Displacement d)
 {
-	if (abs(x) != abs(y))
+	if (abs(d.x) != abs(d.y))
 	{
 		std::cout << "Wrong input for Bishop: Move cancelled!" << std::endl;
-	}
-	else
-	{
-		Position p = Position();
-		p.x = x;
-		p.y = y;
-
-		this->setPos(p);
+		return this->getPos();
 	}
 
-	return this->getPos();
+	Position p = Position();
+	p.x += d.x;
+	p.y += d.y;
+
+	this->setPos(p);
+
+	return p;
 }

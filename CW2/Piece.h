@@ -6,6 +6,8 @@ struct Position
 	float y;
 };
 
+using Displacement = Position;
+
 class Piece
 {
 	public:
@@ -15,8 +17,8 @@ class Piece
 
 	~Piece() {}
 
-	virtual Position move() = 0;
-	virtual bool collision(Position pos) = 0;
+	virtual Position move(Displacement) = 0;
+	virtual bool collision(Position other) = 0;
 
 	Position getPos()
 	{

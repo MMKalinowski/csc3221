@@ -6,19 +6,19 @@ Rook::Rook(Position pos, int sideL)
 , sideL(sideL)
 {}
 
-Position Rook::move(float x, float y)
+Position Rook::move(Displacement d)
 {
-	if (x != 0 && y != 0)
+	if (d.x != 0 && d.y != 0)
 	{
 		std::cout << "Wrong input for Rook: Move cancelled!" << std::endl;
 		return this->getPos();
 	}
 
-	Position p = Position();
-	p.x = x;
-	p.y = y;
+	Position p = this->getPos();
+	p.x += d.x;
+	p.y += d.y;
 
 	this->setPos(p);
 
-	return this->getPos();
+	return p;
 }

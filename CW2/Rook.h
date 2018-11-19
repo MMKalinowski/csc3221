@@ -6,8 +6,8 @@ class Rook : public Piece
 	public:
 	Rook(Position pos, int sideL);
 
-	Position move(float x, float y);
-	bool collision(Position pos);
+	Position move(Displacement);
+	bool collision(Position other);
 
 	private:
 	int sideL = 1;
