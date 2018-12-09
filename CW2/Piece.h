@@ -12,25 +12,17 @@ using Displacement = Position;
 class Piece
 {
 	public:
-	Piece(Position pos)
-	: position(pos)
-	{}
+	Piece(Position pos);
 
-	~Piece() {}
+	virtual ~Piece() {};
 
 	virtual Position move(Displacement) = 0;
 	virtual bool collision(Position other) = 0;
 
-	Position getPos() const
-	{
-		return position;
-	}
+	Position getPos() const;
 
 	protected:
-	void setPos(Position pos)
-	{
-		this->position = pos;
-	}
+	void setPos(Position pos);
 
 	private:
 	Position position;

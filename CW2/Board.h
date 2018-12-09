@@ -2,6 +2,15 @@
 #include "Piece.h"
 #include <vector>
 
+const static int TYPE_NUMBER = 3;
+
+enum class PieceType : int
+{
+	ROOK,
+	BISHOP,
+	QUEEN
+};
+
 class Board
 {
 	public:
@@ -13,6 +22,6 @@ class Board
 		float size;
 		std::vector<Piece*> pieces;
 
-		void AddPiece(int type, int size, Position pos);
+		void AddPiece(PieceType type, int size, Position pos);
 		void MovePiece(Piece* piece, Displacement d);
 };

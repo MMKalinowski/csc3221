@@ -26,3 +26,8 @@ Position Bishop::move(Displacement d)
 
 	return p;
 }
+
+bool Bishop::collision([[maybe_unused]] Position other)
+{
+	return false;
+}

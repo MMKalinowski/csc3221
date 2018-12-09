@@ -6,8 +6,8 @@ class Bishop : public Piece
 	public:
 	Bishop(Position pos, int radius = 1);
 
-	Position move(Displacement);
-	bool collision(Position other);
+	virtual Position move(Displacement) override;
+	virtual bool collision(Position other) override;
 
 	private:
 	int radius;

@@ -4,57 +4,58 @@
 #include "Queen.h"
 
 Board::Board()
+: size(30.0f)
 {
-
+	/*for (auto& c : this->pieces)
+	{
+		delete c;
+	}*/
 }
 
 Board::Board(float size, int pieces)
 : size(size)
 {
-	int type = 0;
-	int posx = 0;
-	int posy = 0;
+	PieceType type;
+	float posx = 0;
+	float posy = 0;
 
 	for (int i = 0; i < pieces; ++i)
 	{
-		type = std::rand() % 3;
-		posx = std::rand() % (int)size;
-		posy = std::rand() % (int)size;
+		type = (PieceType) (std::rand() % TYPE_NUMBER);
+		posx = float(std::rand() % (int)size);
+		posy = float(std::rand() % (int)size);
 		
 		Position pos = {
 			pos.x = posx,
 			pos.y = posy
 		};
 
-		AddPiece(type, 1, pos);
+		AddPiece((PieceType) type, 1, pos);		// TODO: COLLISIONS ON SPAWN!!!
 	}
 	
 }
 
 Board::~Board()
 {
-	//this->pieces.clear();
+	//this->pieces.clear();	//<-- check if same behaviour
 	for (auto& c : this->pieces)
 	{
 		delete c;
 	}
 }
 
-// 0 - Rook
-// 1 - Bishop
-// 2 - Queen
-void Board::AddPiece(int type, int size, Position pos)
+void Board::AddPiece(PieceType type, int psize, Position pos)
 {
 	switch (type)
 	{
-		case 0:
-			this->pieces.emplace_back(new Rook(pos, size));
+		case PieceType::ROOK:
+			this->pieces.emplace_back(new Rook(pos, psize));
 			break;
-		case 1:
-			this->pieces.emplace_back(new Bishop(pos, size));
+		case PieceType::BISHOP:
+			this->pieces.emplace_back(new Bishop(pos, psize));
 			break;
-		case 2:
-			this->pieces.emplace_back(new Queen(pos, size));
+		case PieceType::QUEEN:
+			this->pieces.emplace_back(new Queen(pos, psize));
 			break;
 		default:
 			break;

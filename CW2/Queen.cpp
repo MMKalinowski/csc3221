@@ -26,3 +26,8 @@ Position Queen::move(Displacement d)
 
 	return p;
 }
+
+bool Queen::collision([[maybe_unused]]Position other)
+{
+	return false;
+}

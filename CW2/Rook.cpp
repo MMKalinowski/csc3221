@@ -25,3 +25,8 @@ Position Rook::move(Displacement d)
 
 	return p;
 }
+
+bool Rook::collision([[maybe_unused]]Position other)
+{
+	return false;
+}
