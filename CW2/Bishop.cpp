@@ -4,7 +4,7 @@
 
 int Bishop::captures = 0;
 
-Bishop::Bishop(Position pos, int radius)
+Bishop::Bishop(Position pos, int radius = 1)
 : Piece(pos)
 , radius(radius)
 {}

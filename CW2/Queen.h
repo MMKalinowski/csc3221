@@ -4,7 +4,7 @@
 class Queen : public Piece
 {
 	public:
-	Queen(Position pos, int radius);
+	Queen(Position pos, int radius = 1);
 
 	Position move(Displacement);
 	bool collision(Position other);
