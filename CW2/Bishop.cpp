@@ -9,7 +9,6 @@ Bishop::Bishop(Position pos, int radius)
 , radius(radius)
 {}
 
-//check for tls
 Position Bishop::move(Displacement d)
 {
 	if (abs(d.x) != abs(d.y))

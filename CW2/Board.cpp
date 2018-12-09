@@ -22,8 +22,8 @@ Board::Board(float size, int pieces)
 	for (int i = 0; i < pieces; ++i)
 	{
 		type = (PieceType) (std::rand() % TYPE_NUMBER);
-		posx = float(std::rand() % (int)size);
-		posy = float(std::rand() % (int)size);
+		posx = float (std::rand() % (int) size);
+		posy = float(std::rand() % (int) size);
 		
 		Position pos = {
 			pos.x = posx,
