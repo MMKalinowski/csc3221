@@ -6,6 +6,7 @@ struct Position
 	float y;
 };
 
+//semantic differentiation indicating purpose of struct in context
 using Displacement = Position;
 
 class Piece
@@ -20,7 +21,7 @@ class Piece
 	virtual Position move(Displacement) = 0;
 	virtual bool collision(Position other) = 0;
 
-	Position getPos()
+	Position getPos() const
 	{
 		return position;
 	}
@@ -28,8 +29,7 @@ class Piece
 	protected:
 	void setPos(Position pos)
 	{
-		this->position.x = pos.x;
-		this->position.y = pos.y;
+		this->position = pos;
 	}
 
 	private:

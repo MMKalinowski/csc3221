@@ -17,9 +17,10 @@ Position Queen::move(Displacement d)
 		return this->getPos();
 	}
 
-	Position p = Position();
-	p.x += d.x;
-	p.y += d.y;
+	Position p = {
+		this->getPos().x + d.x,
+		this->getPos().y + d.y
+	};
 
 	this->setPos(p);
 
