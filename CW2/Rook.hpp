@@ -10,6 +10,5 @@ class Rook : public Piece
 	virtual bool collision(const Piece* other) const override;
 
 	private:
-	int sideL;
 	static int captures;
 };

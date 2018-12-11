@@ -10,6 +10,5 @@ class Queen : public Piece
 	virtual bool collision(const Piece* other) const override;
 
 	private:
-	int radius;
 	static int captures;
 };

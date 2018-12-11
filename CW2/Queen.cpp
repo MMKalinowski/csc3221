@@ -1,12 +1,12 @@
 #include "Queen.hpp"
 #include <iostream>
 #include <cmath>
+#include <algorithm>
 
 int Queen::captures = 0;
 
 Queen::Queen(Position pos)
 : Piece(pos, PieceType::QUEEN, Shape::CIRCLE, 1)
-, radius(radius)
 {}
 
 Position Queen::move(Displacement d)
@@ -37,11 +37,19 @@ bool Queen::collision(const Piece* other) const
 	switch(other->getShape())
 	{
 		case Shape::SQUARE:
-			if(1==1)
-			{
+		{
+			const Position botLeft = {
+				this->getPos().x - this->getSize(),
+				this->getPos().y - this->getSize()
+			};
+			const Displacement d = {
+				otherPos.x - std::clamp(otherPos.x, botLeft.x, botLeft.x + 2 * this->getSize()),
+				otherPos.y - std::clamp(otherPos.y, botLeft.y, botLeft.y + 2 * this->getSize())
+			};
 
-			}
+			colliding = (d.x * d.x + d.y * d.y) < (otherSize * otherSize);
 			break;
+		}
 		case Shape::CIRCLE:
 			if(this->getPos().distanceTo(otherPos) < this->getSize() + otherSize)
 			{

@@ -1,11 +1,11 @@
 #include "Rook.hpp"
 #include <iostream>
+#include <algorithm>
 
 int Rook::captures = 0;
 
 Rook::Rook(Position pos)
 : Piece(pos, PieceType::ROOK, Shape::SQUARE, 1)
-, sideL(sideL)
 {}
 
 Position Rook::move(Displacement d)
@@ -62,17 +62,24 @@ bool Rook::collision(const Piece* other) const
 			{
 				break;
 			}
-			
+
 			colliding = true;
 			break;
 		}
 		case Shape::CIRCLE:
-			// if(this->getPos().distanceTo(otherPos) < this->getSize() + other->getSize())
-			// {
-			// 	colliding = true;
-			// }
-			break;
+		{
+			const Position botLeft = {
+				this->getPos().x - this->getSize(),
+				this->getPos().y - this->getSize()
+			};
+			const Displacement d = {
+				otherPos.x - std::clamp(otherPos.x, botLeft.x, botLeft.x + 2 * this->getSize()),
+				otherPos.y - std::clamp(otherPos.y, botLeft.y, botLeft.y + 2 * this->getSize())
+			};
 
+			colliding = (d.x * d.x + d.y * d.y) < (otherSize * otherSize);
+			break;
+		}
 		default:
 			break;
 	}
