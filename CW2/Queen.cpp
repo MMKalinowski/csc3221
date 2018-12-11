@@ -1,5 +1,6 @@
 #include "Queen.h"
 #include <iostream>
+#include <cmath>
 
 int Queen::captures = 0;
 
@@ -11,7 +12,7 @@ Queen::Queen(Position pos, int radius)
 Position Queen::move(Displacement d)
 {
 	// TODO: proper debug needed for edge cases
-	if ((abs(d.x) != abs(d.y)) ^ ((d.x != 0 && d.y != 0)))
+	if ((std::fabs(d.x) != std::fabs(d.y)) ^ ((d.x != 0 && d.y != 0)))
 	{
 		std::cout << "Wrong input for Queen: Move cancelled!" << std::endl;
 		return this->getPos();

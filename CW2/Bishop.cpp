@@ -4,14 +4,14 @@
 
 int Bishop::captures = 0;
 
-Bishop::Bishop(Position pos, int radius = 1)
+Bishop::Bishop(Position pos, int radius)
 : Piece(pos)
 , radius(radius)
 {}
 
 Position Bishop::move(Displacement d)
 {
-	if (abs(d.x) != abs(d.y))
+	if (std::fabs(d.x) != std::fabs(d.y))
 	{
 		std::cout << "Wrong input for Bishop: Move cancelled!" << std::endl;
 		return this->getPos();
