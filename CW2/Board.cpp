@@ -1,38 +1,37 @@
-#include "Board.h"
-#include "Rook.h"
-#include "Bishop.h"
-#include "Queen.h"
+#include "Board.hpp"
+#include "Rook.hpp"
+#include "Bishop.hpp"
+#include "Queen.hpp"
 
 Board::Board()
 : size(30.0f)
 {
-	/*for (auto& c : this->pieces)
-	{
-		delete c;
-	}*/
+	for(int i = 0; i < 5; ++i){
+		PieceType type = (PieceType) (i % TYPE_NUMBER);
+
+		Position pos = {
+			pos.x = float (std::rand() % (int) size),
+			pos.y = float (std::rand() % (int) size)
+		};
+
+		AddPiece(type, pos);
+	}
 }
 
 Board::Board(float size, int pieces)
 : size(size)
 {
-	PieceType type;
-	float posx = 0;
-	float posy = 0;
-
 	for (int i = 0; i < pieces; ++i)
 	{
-		type = (PieceType) (std::rand() % TYPE_NUMBER);
-		posx = float (std::rand() % (int) size);
-		posy = float(std::rand() % (int) size);
+		PieceType type = (PieceType) (std::rand() % TYPE_NUMBER);
 		
 		Position pos = {
-			pos.x = posx,
-			pos.y = posy
+			pos.x = float (std::rand() % (int) size),
+			pos.y = float (std::rand() % (int) size)
 		};
 
-		AddPiece((PieceType) type, 1, pos);		// TODO: COLLISIONS ON SPAWN!!!
+		AddPiece(type, pos);		// TODO: COLLISIONS ON SPAWN!!!
 	}
-	
 }
 
 Board::~Board()
@@ -44,21 +43,30 @@ Board::~Board()
 	}
 }
 
-void Board::AddPiece(PieceType type, int psize, Position pos)
+void Board::AddPiece(PieceType type, Position pos)
 {
 	switch (type)
 	{
 		case PieceType::ROOK:
-			this->pieces.emplace_back(new Rook(pos, psize));
+			this->pieces.emplace_back(new Rook(pos));
 			break;
 		case PieceType::BISHOP:
-			this->pieces.emplace_back(new Bishop(pos, psize));
+			this->pieces.emplace_back(new Bishop(pos));
 			break;
 		case PieceType::QUEEN:
-			this->pieces.emplace_back(new Queen(pos, psize));
+			this->pieces.emplace_back(new Queen(pos));
 			break;
 		default:
 			break;
 	}
 	
+}
+
+bool Board::CollisionCheck(const Piece* piece){
+	for(auto& p : this->pieces){
+		if((piece)->collision(p->getPos())){
+			
+		}
+	}
+	return true;
 }

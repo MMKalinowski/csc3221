@@ -1,4 +1,4 @@
-#include "Queen.h"
+#include "Queen.hpp"
 #include <iostream>
 #include <cmath>
 
@@ -28,7 +28,7 @@ Position Queen::move(Displacement d)
 	return p;
 }
 
-bool Queen::collision([[maybe_unused]]Position other)
+bool Queen::collision([[maybe_unused]]Position other) const
 {
 	return false;
 }

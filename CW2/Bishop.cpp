@@ -1,4 +1,4 @@
-#include "Bishop.h"
+#include "Bishop.hpp"
 #include <cmath>
 #include <iostream>
 
@@ -27,7 +27,7 @@ Position Bishop::move(Displacement d)
 	return p;
 }
 
-bool Bishop::collision([[maybe_unused]] Position other)
+bool Bishop::collision([[maybe_unused]] Position other) const
 {
 	return false;
 }

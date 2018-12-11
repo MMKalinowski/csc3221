@@ -1,5 +1,5 @@
 #pragma once
-#include "Piece.h"
+#include "Piece.hpp"
 
 class Bishop : public Piece
 {
@@ -7,7 +7,7 @@ class Bishop : public Piece
 	Bishop(Position pos, int radius = 1);
 
 	virtual Position move(Displacement) override;
-	virtual bool collision(Position other) override;
+	virtual bool collision(const Position other) const override;
 
 	private:
 	int radius;

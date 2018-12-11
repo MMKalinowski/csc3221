@@ -1,13 +1,13 @@
 #pragma once
-#include "Piece.h"
+#include "Piece.hpp"
 
 class Rook : public Piece
 {
 	public:
 	Rook(Position pos, int sideL = 2);
 
-	Position move(Displacement);
-	bool collision(Position other);
+	virtual Position move(Displacement) override;
+	virtual bool collision(Position other) const override;
 
 	private:
 	int sideL;

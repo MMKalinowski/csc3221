@@ -1,4 +1,4 @@
-#include "Rook.h"
+#include "Rook.hpp"
 #include <iostream>
 
 int Rook::captures = 0;
@@ -26,7 +26,7 @@ Position Rook::move(Displacement d)
 	return p;
 }
 
-bool Rook::collision([[maybe_unused]]Position other)
+bool Rook::collision([[maybe_unused]]Position other) const
 {
 	return false;
 }

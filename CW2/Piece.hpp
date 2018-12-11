@@ -1,5 +1,21 @@
 #pragma once
 #include <string>
+
+const static int TYPE_NUMBER = 3;
+
+enum class PieceType : int
+{
+	ROOK,
+	BISHOP,
+	QUEEN
+};
+
+enum class Shape : int
+{
+	SQUARE,
+	CIRCLE
+};
+
 struct Position
 {
 	float x;
@@ -17,7 +33,7 @@ class Piece
 	virtual ~Piece() {};
 
 	virtual Position move(Displacement) = 0;
-	virtual bool collision(Position other) = 0;
+	virtual bool collision(const Position other) const = 0;
 
 	Position getPos() const;
 

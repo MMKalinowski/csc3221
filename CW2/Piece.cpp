@@ -1,4 +1,4 @@
-#include "Piece.h"
+#include "Piece.hpp"
 
 Piece::Piece(Position pos)
 : position(pos)

@@ -1,13 +1,13 @@
 #pragma once
-#include "Piece.h"
+#include "Piece.hpp"
 
 class Queen : public Piece
 {
 	public:
 	Queen(Position pos, int radius = 1);
 
-	Position move(Displacement);
-	bool collision(Position other);
+	virtual Position move(Displacement) override;
+	virtual bool collision(const Position other) const override;
 
 	private:
 	int radius;
