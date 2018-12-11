@@ -7,7 +7,7 @@ class Rook : public Piece
 	Rook(Position pos, int sideL = 2);
 
 	virtual Position move(Displacement) override;
-	virtual bool collision(Position other) const override;
+	virtual bool collision(const Piece* other) const override;
 
 	private:
 	int sideL;

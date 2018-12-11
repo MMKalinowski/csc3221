@@ -4,12 +4,11 @@
 class Bishop : public Piece
 {
 	public:
-	Bishop(Position pos, int radius = 1);
+	Bishop(Position pos);
 
 	virtual Position move(Displacement) override;
-	virtual bool collision(const Position other) const override;
+	virtual bool collision(const Piece* other) const override;
 
 	private:
-	int radius;
 	static int captures;
 };

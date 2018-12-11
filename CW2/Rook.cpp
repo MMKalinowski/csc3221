@@ -4,7 +4,7 @@
 int Rook::captures = 0;
 
 Rook::Rook(Position pos, int sideL)
-: Piece(pos)
+: Piece(pos, PieceType::ROOK, Shape::SQUARE)
 , sideL(sideL)
 {}
 
@@ -26,7 +26,28 @@ Position Rook::move(Displacement d)
 	return p;
 }
 
-bool Rook::collision([[maybe_unused]]Position other) const
+bool Rook::collision([[maybe_unused]]const Piece* other) const
 {
-	return false;
+	const Position otherPos = other->getPos();
+	bool colliding = false;
+
+	switch(other->getShape())
+	{
+		case Shape::SQUARE:
+			if(1==1)
+			{
+
+			}
+			break;
+		case Shape::CIRCLE:
+			// if(this->getPos().distanceTo(otherPos) < this->getSize() + other->getSize())
+			// {
+			// 	colliding = true;
+			// }
+			break;
+
+		default:
+			break;
+	}
+	return colliding;
 }

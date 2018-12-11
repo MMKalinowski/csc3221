@@ -4,9 +4,8 @@
 
 int Bishop::captures = 0;
 
-Bishop::Bishop(Position pos, int radius)
-: Piece(pos)
-, radius(radius)
+Bishop::Bishop(Position pos)
+: Piece(pos, PieceType::BISHOP, Shape::CIRCLE, 1)
 {}
 
 Position Bishop::move(Displacement d)
@@ -27,7 +26,28 @@ Position Bishop::move(Displacement d)
 	return p;
 }
 
-bool Bishop::collision([[maybe_unused]] Position other) const
+bool Bishop::collision(const Piece* other) const
 {
-	return false;
+	const Position otherPos = other->getPos();
+	bool colliding = false;
+
+	switch(other->getShape())
+	{
+		case Shape::SQUARE:
+			if(1==1)
+			{
+
+			}
+			break;
+		case Shape::CIRCLE:
+			if(this->getPos().distanceTo(otherPos) < this->getSize() + other->getSize())
+			{
+				colliding = true;
+			}
+			break;
+
+		default:
+			break;
+	}
+	return colliding;
 }

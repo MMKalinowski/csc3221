@@ -64,7 +64,7 @@ void Board::AddPiece(PieceType type, Position pos)
 
 bool Board::CollisionCheck(const Piece* piece){
 	for(auto& p : this->pieces){
-		if((piece)->collision(p->getPos())){
+		if((piece)->collision(p)){
 			
 		}
 	}

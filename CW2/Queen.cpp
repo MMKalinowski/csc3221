@@ -5,7 +5,7 @@
 int Queen::captures = 0;
 
 Queen::Queen(Position pos, int radius)
-	: Piece(pos)
+	: Piece(pos, PieceType::QUEEN, Shape::CIRCLE)
 	, radius(radius)
 {}
 
@@ -28,7 +28,20 @@ Position Queen::move(Displacement d)
 	return p;
 }
 
-bool Queen::collision([[maybe_unused]]Position other) const
+bool Queen::collision([[maybe_unused]]const Piece* other) const
 {
+	switch(other->getShape())
+	{
+		case(Shape::SQUARE):
+
+		break;
+		
+		case(Shape::CIRCLE):
+
+		break;
+
+		default:
+		break;
+	}
 	return false;
 }
