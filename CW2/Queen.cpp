@@ -4,9 +4,9 @@
 
 int Queen::captures = 0;
 
-Queen::Queen(Position pos, int radius)
-	: Piece(pos, PieceType::QUEEN, Shape::CIRCLE)
-	, radius(radius)
+Queen::Queen(Position pos)
+: Piece(pos, PieceType::QUEEN, Shape::CIRCLE, 1)
+, radius(radius)
 {}
 
 Position Queen::move(Displacement d)
@@ -28,20 +28,29 @@ Position Queen::move(Displacement d)
 	return p;
 }
 
-bool Queen::collision([[maybe_unused]]const Piece* other) const
+bool Queen::collision(const Piece* other) const
 {
+	const Position otherPos = other->getPos();
+	const int otherSize = other->getSize();
+	bool colliding = false;
+
 	switch(other->getShape())
 	{
-		case(Shape::SQUARE):
+		case Shape::SQUARE:
+			if(1==1)
+			{
 
-		break;
-		
-		case(Shape::CIRCLE):
-
-		break;
+			}
+			break;
+		case Shape::CIRCLE:
+			if(this->getPos().distanceTo(otherPos) < this->getSize() + otherSize)
+			{
+				colliding = true;
+			}
+			break;
 
 		default:
-		break;
+			break;
 	}
-	return false;
+	return colliding;
 }

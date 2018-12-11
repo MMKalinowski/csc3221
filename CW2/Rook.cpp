@@ -3,8 +3,8 @@
 
 int Rook::captures = 0;
 
-Rook::Rook(Position pos, int sideL)
-: Piece(pos, PieceType::ROOK, Shape::SQUARE)
+Rook::Rook(Position pos)
+: Piece(pos, PieceType::ROOK, Shape::SQUARE, 1)
 , sideL(sideL)
 {}
 
@@ -26,19 +26,46 @@ Position Rook::move(Displacement d)
 	return p;
 }
 
-bool Rook::collision([[maybe_unused]]const Piece* other) const
+bool Rook::collision(const Piece* other) const
 {
 	const Position otherPos = other->getPos();
+	const int otherSize = other->getSize();
 	bool colliding = false;
 
 	switch(other->getShape())
 	{
 		case Shape::SQUARE:
-			if(1==1)
-			{
+		{
+			const Position topLeft = {
+				this->getPos().x - this->getSize(),
+				this->getPos().y + this->getSize()
+			};
+			const Position botRight = {
+				this->getPos().x + this->getSize(),
+				this->getPos().y - this->getSize()
+			};
+			const Position otherTopLeft = {
+				otherPos.x - otherSize,
+				otherPos.y + otherSize
+			};
+			const Position otherBotRight = {
+				otherPos.x + otherSize,
+				otherPos.y - otherSize
+			};
 
+			if(topLeft.x > otherBotRight.x || otherTopLeft.x > botRight.x)
+			{
+				break;
 			}
+			
+			if(topLeft.y < otherBotRight.y || otherTopLeft.y < botRight.y)
+			{
+				break;
+			}
+			
+			colliding = true;
 			break;
+		}
 		case Shape::CIRCLE:
 			// if(this->getPos().distanceTo(otherPos) < this->getSize() + other->getSize())
 			// {

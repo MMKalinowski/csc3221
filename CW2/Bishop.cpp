@@ -29,6 +29,7 @@ Position Bishop::move(Displacement d)
 bool Bishop::collision(const Piece* other) const
 {
 	const Position otherPos = other->getPos();
+	const int otherSize = other->getSize();
 	bool colliding = false;
 
 	switch(other->getShape())
@@ -40,7 +41,7 @@ bool Bishop::collision(const Piece* other) const
 			}
 			break;
 		case Shape::CIRCLE:
-			if(this->getPos().distanceTo(otherPos) < this->getSize() + other->getSize())
+			if(this->getPos().distanceTo(otherPos) < this->getSize() + otherSize)
 			{
 				colliding = true;
 			}

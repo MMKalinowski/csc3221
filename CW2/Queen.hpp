@@ -4,7 +4,7 @@
 class Queen : public Piece
 {
 	public:
-	Queen(Position pos, int radius = 1);
+	Queen(Position pos);
 
 	virtual Position move(Displacement) override;
 	virtual bool collision(const Piece* other) const override;

@@ -4,7 +4,7 @@
 class Rook : public Piece
 {
 	public:
-	Rook(Position pos, int sideL = 2);
+	Rook(Position pos);
 
 	virtual Position move(Displacement) override;
 	virtual bool collision(const Piece* other) const override;
