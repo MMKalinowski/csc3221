@@ -1,3 +1,6 @@
+//	Author: Maciej Kalinowski
+//	Student no: 160473294
+
 #include "Board.hpp"
 #include "Rook.hpp"
 #include "Bishop.hpp"
@@ -92,8 +95,10 @@ void Board::MovePiece(Piece* const piece, const Displacement d)
 	Position current = piece->getPos();
 	Position next = current + d;
 
-	if(next.x < 0 || next.x > this->size)	return;
-	if(next.y < 0 || next.y > this->size)	return;
+	//if(next.x < 0 || next.x > this->size)	
+	next.x = Piece::clip(next.x, .0f, (float)this->size);
+	//if(next.y < 0 || next.y > this->size)
+	next.y = Piece::clip(next.y, .0f, (float)this->size);
 
 	piece->move(d);
 }

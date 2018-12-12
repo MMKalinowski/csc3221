@@ -1,3 +1,6 @@
+//	Author: Maciej Kalinowski
+//	Student no: 160473294
+
 #include "Bishop.hpp"
 #include <iostream>
 #include <cmath>
@@ -42,8 +45,8 @@ bool Bishop::collision(const Piece* other) const
 				this->getPos().y - this->getSize()
 			};
 			const Displacement d = {
-				otherPos.x - std::clamp(otherPos.x, botLeft.x, botLeft.x + 2 * this->getSize()),
-				otherPos.y - std::clamp(otherPos.y, botLeft.y, botLeft.y + 2 * this->getSize())
+				otherPos.x - Piece::clip(otherPos.x, botLeft.x, botLeft.x + 2 * this->getSize()),
+				otherPos.y - Piece::clip(otherPos.y, botLeft.y, botLeft.y + 2 * this->getSize())
 			};
 
 			colliding = (d.x * d.x + d.y * d.y) < (otherSize * otherSize);
@@ -64,4 +67,8 @@ bool Bishop::collision(const Piece* other) const
 
 void Bishop::captured() const{
 	captures++;
+}
+
+int Bishop::noOfCaptures(){
+	return captures;
 }

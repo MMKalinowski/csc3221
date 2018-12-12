@@ -1,3 +1,6 @@
+//	Author: Maciej Kalinowski
+//	Student no: 160473294
+
 #include "Piece.hpp"
 #include <cmath>
 
@@ -96,10 +99,14 @@ float Position::distanceTo(const Position other) const
 
 Position Position::operator+(const Position& rhs) const
 {
-	return Position{ rhs.x+this->x, rhs.y+y };
+	return Position{ rhs.x+this->x, rhs.y+this->y };
 }
 
 bool Position::operator==(const Position& rhs) const
 {
-	return (x == rhs.x && y == rhs.y);
+	return (this->x == rhs.x && this->y == rhs.y);
+}
+
+float Piece::clip(float n, float lower, float upper) {
+  return std::max(lower, std::min(n, upper));
 }

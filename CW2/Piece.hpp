@@ -1,3 +1,6 @@
+//	Author: Maciej Kalinowski
+//	Student no: 160473294
+
 #pragma once
 #include <string>
 
@@ -52,6 +55,7 @@ class Piece
 	std::string posToStr() const;
 
 	bool sameFloat(float a, float b) const;
+	static float clip(float n, float lower, float upper);
 
 	protected:
 	void setPos(Position pos);

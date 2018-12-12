@@ -1,3 +1,6 @@
+//	Author: Maciej Kalinowski
+//	Student no: 160473294
+
 #include "Queen.hpp"
 #include <iostream>
 #include <cmath>
@@ -11,7 +14,7 @@ Queen::Queen(Position pos)
 
 Position Queen::move(const Displacement d)
 {
-	if (!(Piece::sameFloat(std::fabs(d.x), std::fabs(d.y))) && !((d.x != 0 && d.y != 0)))
+	if ((Piece::sameFloat(std::fabs(d.x), std::fabs(d.y))) && ((d.x != 0 && d.y != 0)))
 	{
 		std::cout << "Wrong input for Queen: Move cancelled!" << std::endl;
 		return this->getPos();
@@ -42,8 +45,8 @@ bool Queen::collision(const Piece* other) const
 				this->getPos().y - this->getSize()
 			};
 			const Displacement d = {
-				otherPos.x - std::clamp(otherPos.x, botLeft.x, botLeft.x + 2 * this->getSize()),
-				otherPos.y - std::clamp(otherPos.y, botLeft.y, botLeft.y + 2 * this->getSize())
+				otherPos.x - Piece::clip(otherPos.x, botLeft.x, botLeft.x + 2 * this->getSize()),
+				otherPos.y - Piece::clip(otherPos.y, botLeft.y, botLeft.y + 2 * this->getSize())
 			};
 
 			colliding = (d.x * d.x + d.y * d.y) < (otherSize * otherSize);
@@ -64,4 +67,8 @@ bool Queen::collision(const Piece* other) const
 
 void Queen::captured() const{
 	captures++;
+}
+
+int Queen::noOfCaptures(){
+	return captures;
 }

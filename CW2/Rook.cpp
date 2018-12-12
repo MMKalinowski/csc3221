@@ -1,3 +1,6 @@
+//	Author: Maciej Kalinowski
+//	Student no: 160473294
+
 #include "Rook.hpp"
 #include <iostream>
 #include <algorithm>
@@ -73,8 +76,8 @@ bool Rook::collision(const Piece* other) const
 				this->getPos().y - this->getSize()
 			};
 			const Displacement d = {
-				otherPos.x - std::clamp(otherPos.x, botLeft.x, botLeft.x + 2 * this->getSize()),
-				otherPos.y - std::clamp(otherPos.y, botLeft.y, botLeft.y + 2 * this->getSize())
+				otherPos.x - Piece::clip(otherPos.x, botLeft.x, botLeft.x + 2 * this->getSize()),
+				otherPos.y - Piece::clip(otherPos.y, botLeft.y, botLeft.y + 2 * this->getSize())
 			};
 
 			return (d.x * d.x + d.y * d.y) < (otherSize * otherSize);
@@ -88,4 +91,8 @@ bool Rook::collision(const Piece* other) const
 void Rook::captured() const
 {
 	captures++;
+}
+
+int Rook::noOfCaptures(){
+	return captures;
 }
