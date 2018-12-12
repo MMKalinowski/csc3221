@@ -9,7 +9,7 @@ Queen::Queen(Position pos)
 : Piece(pos, PieceType::QUEEN, Shape::CIRCLE, 1)
 {}
 
-Position Queen::move(Displacement d)
+Position Queen::move(const Displacement d)
 {
 	// TODO: proper debug needed for edge cases
 	if ((std::fabs(d.x) != std::fabs(d.y)) ^ ((d.x != 0 && d.y != 0)))
@@ -63,6 +63,6 @@ bool Queen::collision(const Piece* other) const
 	return colliding;
 }
 
-void Queen::captured(){
+void Queen::captured() const{
 	captures++;
 }

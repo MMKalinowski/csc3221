@@ -9,7 +9,7 @@ Bishop::Bishop(Position pos)
 : Piece(pos, PieceType::BISHOP, Shape::CIRCLE, 1)
 {}
 
-Position Bishop::move(Displacement d)
+Position Bishop::move(const Displacement d)
 {
 	if (std::fabs(d.x) != std::fabs(d.y))
 	{
@@ -62,6 +62,6 @@ bool Bishop::collision(const Piece* other) const
 	return colliding;
 }
 
-void Bishop::captured(){
+void Bishop::captured() const{
 	captures++;
 }

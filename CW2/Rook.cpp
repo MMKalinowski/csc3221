@@ -8,7 +8,7 @@ Rook::Rook(Position pos)
 : Piece(pos, PieceType::ROOK, Shape::SQUARE, 1)
 {}
 
-Position Rook::move(Displacement d)
+Position Rook::move(const Displacement d)
 {
 	if (d.x != 0 && d.y != 0)
 	{
@@ -63,7 +63,6 @@ bool Rook::collision(const Piece* other) const
 				return false;
 			}
 
-			captures++;
 			return true;
 		}
 		case Shape::CIRCLE:
@@ -85,6 +84,7 @@ bool Rook::collision(const Piece* other) const
 	return false;
 }
 
-void Rook::captured(){
+void Rook::captured() const
+{
 	captures++;
 }

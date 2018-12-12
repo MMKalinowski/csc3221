@@ -1,5 +1,6 @@
 #pragma once
 #include "Piece.hpp"
+
 #include <vector>
 
 class Board
@@ -14,6 +15,6 @@ class Board
 		std::vector<Piece*> pieces;
 
 		void AddPiece(const PieceType type, const Position pos);
-		void MovePiece(const Piece* piece, const Displacement d);
+		void MovePiece(Piece* const piece, const Displacement d);
 		std::string CollisionCheck(const Piece* piece);
 };

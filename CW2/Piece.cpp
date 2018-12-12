@@ -81,3 +81,8 @@ float Position::distanceTo(const Position other) const
 	
 	return std::sqrt(d.x * d.x + d.y * d.y);
 }
+
+Position Position::operator+(const Position& rhs) const
+{
+	return Position{ rhs.x+this->x, rhs.y+y };
+}

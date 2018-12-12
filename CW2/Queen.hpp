@@ -8,6 +8,7 @@ class Queen : public Piece
 
 	virtual Position move(Displacement) override;
 	virtual bool collision(const Piece* other) const override;
+	virtual void captured() const override;
 
 	void captured();
 

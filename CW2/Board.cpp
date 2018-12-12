@@ -37,9 +37,9 @@ Board::Board(float size, int pieces)
 Board::~Board()
 {
 	//this->pieces.clear();	//<-- check if same behaviour
-	for (auto& c : this->pieces)
+	for (auto& p : this->pieces)
 	{
-		delete c;
+		delete p;
 	}
 }
 
@@ -66,8 +66,20 @@ std::string Board::CollisionCheck(const Piece* piece){
 	std::string capt;
 	for(auto& p : this->pieces){
 		if((piece)->collision(p)){
-			capt += "";
+			capt += piece->toString() + " captured " + p->toString() + "\n";
+			piece->captured();
 		}
 	}
 	return capt;
+}
+
+void Board::MovePiece(Piece* const piece, const Displacement d)
+{
+	Position current = piece->getPos();
+	Position next = current + d;
+
+	if(next.x < 0 || next.x > this->size)	return;
+	if(next.y < 0 || next.y > this->size)	return;
+
+	piece->move(d);
 }

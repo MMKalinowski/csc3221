@@ -8,8 +8,7 @@ class Rook : public Piece
 
 	virtual Position move(Displacement) override;
 	virtual bool collision(const Piece* other) const override;
-
-	void captured();
+	virtual void captured() const override;
 
 	private:
 	static int captures;

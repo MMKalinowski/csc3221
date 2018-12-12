@@ -22,6 +22,8 @@ struct Position
 	float x;
 	float y;
 	float distanceTo(const Position other) const;
+
+	Position operator+(const Position& rhs) const;
 };
 
 //semantic differentiation indicating purpose of struct in context
@@ -34,8 +36,9 @@ class Piece
 
 	virtual ~Piece() {};
 
-	virtual Position move(Displacement) = 0;
+	virtual Position move(const Displacement) = 0;
 	virtual bool collision(const Piece* other) const = 0;
+	virtual void captured() const = 0;
 
 	Position getPos() const;
 	PieceType getType() const;
