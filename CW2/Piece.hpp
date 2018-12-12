@@ -3,6 +3,7 @@
 
 
 const static int TYPE_NUMBER = 3;
+const static float DELTA_FLOAT = 0.001f;
 
 enum class PieceType : int
 {
@@ -49,6 +50,8 @@ class Piece
 	std::string toString() const;
 	std::string typeToStr() const;
 	std::string posToStr() const;
+
+	bool sameFloat(float a, float b) const;
 
 	protected:
 	void setPos(Position pos);

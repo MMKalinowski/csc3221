@@ -3,6 +3,8 @@
 #include "Bishop.hpp"
 #include "Queen.hpp"
 
+#include <algorithm>
+
 Board::Board()
 : size(30.0f)
 {
@@ -64,17 +66,22 @@ void Board::AddPiece(PieceType type, Position pos)
 
 std::string Board::CollisionCheck(const Piece* piece){
 	std::string capt;
-	for(auto& p : this->pieces)
+	//for(auto& p : this->pieces)
+	for(int i = 0; i < this->noOfPieces(); ++i)
 	{
 		//change to operator override in Piece
-		if(piece->getPos() == p->getPos() && piece->getType() == p->getType())
+		if(piece == this->pieces[i])
 		{
 			continue;
 		}
 
-		if((piece)->collision(p)){
-			capt += piece->toString() + " captured " + p->toString() + "\n";
+		if((piece)->collision(pieces[i])){
+			std::vector<Piece*>::iterator it = std::find(this->pieces.begin(), this->pieces.end(), pieces[i]);
+			capt += "!!!!!!!!!!!\n";
+			capt += piece->toString() + " captured " + this->pieces[i]->toString() + "\n";
+			this->pieces.erase(it);
 			piece->captured();
+			capt += "!!!!!!!!!!!\n";
 		}
 	}
 	return capt;

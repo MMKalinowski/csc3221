@@ -52,12 +52,13 @@ std::string Piece::typeToStr() const
 	{
 		case PieceType::BISHOP:
 			print = "Bishop";
-		
+			break;
 		case PieceType::QUEEN:
 			print = "Queen";
-
+			break;
 		case PieceType::ROOK:
 			print = "Rook";
+			break;
 	}
 
 	return print;
@@ -70,6 +71,17 @@ std::string Piece::posToStr() const
 	print += "(" + std::to_string(this->position.x) + ", " + std::to_string(this->position.y) + ")";
 
 	return print;
+}
+
+bool Piece::sameFloat(float a, float b) const
+{
+	bool x;
+	float aAbs = std::fabs(a);
+	float bAbs = std::fabs(b);
+		
+	(std::fabs(aAbs-bAbs) < DELTA_FLOAT) ? x = true : x = false;
+	
+	return x;
 }
 
 float Position::distanceTo(const Position other) const

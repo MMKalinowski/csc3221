@@ -11,8 +11,7 @@ Queen::Queen(Position pos)
 
 Position Queen::move(const Displacement d)
 {
-	// TODO: proper debug needed for edge cases
-	if ((std::fabs(d.x) != std::fabs(d.y)) ^ ((d.x != 0 && d.y != 0)))
+	if (!(Piece::sameFloat(std::fabs(d.x), std::fabs(d.y))) && !((d.x != 0 && d.y != 0)))
 	{
 		std::cout << "Wrong input for Queen: Move cancelled!" << std::endl;
 		return this->getPos();

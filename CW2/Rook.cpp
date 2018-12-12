@@ -10,6 +10,7 @@ Rook::Rook(Position pos)
 
 Position Rook::move(const Displacement d)
 {
+	//not using sameFloat since 0 can be represented as a direct power of 2
 	if (d.x != 0 && d.y != 0)
 	{
 		std::cout << "Wrong input for Rook: Move cancelled!" << std::endl;

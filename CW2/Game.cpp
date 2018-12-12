@@ -34,12 +34,26 @@ Displacement generateMove(const PieceType t, const Board* b)
 		}
 		case PieceType::QUEEN:
 		{
-			float x = randFloatRange(-b->getSize(), b->getSize());
-			float y = decide > 0 ? -x : x;
+			if(decide > 0)
+			{
+				int direction = rand() % 2;
+				float x = randFloatRange(-b->getSize(), b->getSize());
+				float y = direction > 0 ? -x : x;
 
-			d.x = x;
-			d.y = y;
-			return d;
+				d.x = x;
+				d.y = y;
+				return d;
+			}
+			else
+			{
+				int direction = rand() % 2;
+				float move = randFloatRange(-b->getSize(), b->getSize());
+
+				direction > 0 ? d.x = move : d.y = move;
+				direction > 0 ? d.y = 0 : d.x = 0;
+				return d;
+			}
+			
 		}
 	}
 }
@@ -50,15 +64,31 @@ int main()
 
 	Board* b = new Board();
 
-	int cycles = 10;
+	int cycles = 100;
 
 	for(int i = 1; i <= cycles; ++i)
 	{
-		for(auto p : b->getPieces())
+		if(b->noOfPieces() < 2)
 		{
-			p->move(generateMove(p->getType(), b));
-			std::cout << "Moving " << p->typeToStr() << "from ";
-			b->CollisionCheck(p);
+			break;
+		}
+
+		std::cout << "--- Beginning cycle " << i << " ---" << std::endl; 
+		for(int j = 0; j < b->noOfPieces(); ++j)
+		{
+			std::string initPos = b->getPieces()[j]->posToStr();
+			b->MovePiece(b->getPieces()[j], generateMove(b->getPieces()[j]->getType(), b));
+			
+			std::cout << "Moving " << b->getPieces()[j]->typeToStr() << " from " << initPos
+			<< " to " << b->getPieces()[j]->posToStr() << std::endl;
+			std::string cap = b->CollisionCheck(b->getPieces()[j]);
+			
+			if(cap.length() == 0)
+			{
+				continue;
+			}
+
+			std::cout << cap; 
 		}
 	}
 

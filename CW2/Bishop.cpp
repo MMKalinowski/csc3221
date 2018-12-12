@@ -11,7 +11,7 @@ Bishop::Bishop(Position pos)
 
 Position Bishop::move(const Displacement d)
 {
-	if (std::fabs(d.x) != std::fabs(d.y))
+	if (!Piece::sameFloat(std::fabs(d.x), std::fabs(d.y)))
 	{
 		std::cout << "Wrong input for Bishop: Move cancelled!" << std::endl;
 		return this->getPos();
