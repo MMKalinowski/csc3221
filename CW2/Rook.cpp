@@ -26,11 +26,11 @@ Position Rook::move(Displacement d)
 	return p;
 }
 
+//important: check if this piece collides with other piece when this was moved
 bool Rook::collision(const Piece* other) const
 {
 	const Position otherPos = other->getPos();
 	const int otherSize = other->getSize();
-	bool colliding = false;
 
 	switch(other->getShape())
 	{
@@ -55,16 +55,16 @@ bool Rook::collision(const Piece* other) const
 
 			if(topLeft.x > otherBotRight.x || otherTopLeft.x > botRight.x)
 			{
-				break;
+				return false;
 			}
 			
 			if(topLeft.y < otherBotRight.y || otherTopLeft.y < botRight.y)
 			{
-				break;
+				return false;
 			}
 
-			colliding = true;
-			break;
+			captures++;
+			return true;
 		}
 		case Shape::CIRCLE:
 		{
@@ -77,11 +77,14 @@ bool Rook::collision(const Piece* other) const
 				otherPos.y - std::clamp(otherPos.y, botLeft.y, botLeft.y + 2 * this->getSize())
 			};
 
-			colliding = (d.x * d.x + d.y * d.y) < (otherSize * otherSize);
-			break;
+			return (d.x * d.x + d.y * d.y) < (otherSize * otherSize);
 		}
 		default:
 			break;
 	}
-	return colliding;
+	return false;
+}
+
+void Rook::captured(){
+	captures++;
 }

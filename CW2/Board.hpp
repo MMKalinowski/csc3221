@@ -15,5 +15,5 @@ class Board
 
 		void AddPiece(const PieceType type, const Position pos);
 		void MovePiece(const Piece* piece, const Displacement d);
-		bool CollisionCheck(const Piece* piece);
+		std::string CollisionCheck(const Piece* piece);
 };

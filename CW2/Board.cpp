@@ -62,11 +62,12 @@ void Board::AddPiece(PieceType type, Position pos)
 	
 }
 
-bool Board::CollisionCheck(const Piece* piece){
+std::string Board::CollisionCheck(const Piece* piece){
+	std::string capt;
 	for(auto& p : this->pieces){
 		if((piece)->collision(p)){
-			
+			capt += "";
 		}
 	}
-	return true;
+	return capt;
 }

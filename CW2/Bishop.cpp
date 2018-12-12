@@ -61,3 +61,7 @@ bool Bishop::collision(const Piece* other) const
 	}
 	return colliding;
 }
+
+void Bishop::captured(){
+	captures++;
+}

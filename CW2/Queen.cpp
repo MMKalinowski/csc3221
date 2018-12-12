@@ -62,3 +62,7 @@ bool Queen::collision(const Piece* other) const
 	}
 	return colliding;
 }
+
+void Queen::captured(){
+	captures++;
+}

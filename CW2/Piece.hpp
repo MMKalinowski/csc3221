@@ -42,6 +42,8 @@ class Piece
 	Shape getShape() const;
 	int getSize() const;
 
+	std::string toString() const;
+
 	protected:
 	void setPos(Position pos);
 
@@ -50,4 +52,7 @@ class Piece
 	PieceType type;
 	Shape shape;
 	int size;
+
+	std::string typeToStr() const;
+	std::string posToStr() const;
 };
