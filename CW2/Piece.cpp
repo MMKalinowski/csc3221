@@ -86,3 +86,8 @@ Position Position::operator+(const Position& rhs) const
 {
 	return Position{ rhs.x+this->x, rhs.y+y };
 }
+
+bool Position::operator==(const Position& rhs) const
+{
+	return (x == rhs.x && y == rhs.y);
+}

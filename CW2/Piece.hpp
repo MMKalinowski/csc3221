@@ -24,6 +24,7 @@ struct Position
 	float distanceTo(const Position other) const;
 
 	Position operator+(const Position& rhs) const;
+	bool operator==(const Position& rhs) const;
 };
 
 //semantic differentiation indicating purpose of struct in context
@@ -46,6 +47,8 @@ class Piece
 	int getSize() const;
 
 	std::string toString() const;
+	std::string typeToStr() const;
+	std::string posToStr() const;
 
 	protected:
 	void setPos(Position pos);
@@ -55,7 +58,4 @@ class Piece
 	PieceType type;
 	Shape shape;
 	int size;
-
-	std::string typeToStr() const;
-	std::string posToStr() const;
 };

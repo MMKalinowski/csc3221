@@ -64,7 +64,14 @@ void Board::AddPiece(PieceType type, Position pos)
 
 std::string Board::CollisionCheck(const Piece* piece){
 	std::string capt;
-	for(auto& p : this->pieces){
+	for(auto& p : this->pieces)
+	{
+		//change to operator override in Piece
+		if(piece->getPos() == p->getPos() && piece->getType() == p->getType())
+		{
+			continue;
+		}
+
 		if((piece)->collision(p)){
 			capt += piece->toString() + " captured " + p->toString() + "\n";
 			piece->captured();
@@ -82,4 +89,19 @@ void Board::MovePiece(Piece* const piece, const Displacement d)
 	if(next.y < 0 || next.y > this->size)	return;
 
 	piece->move(d);
+}
+
+float Board::getSize() const
+{
+	return this->size;
+}
+
+int Board::noOfPieces() const
+{
+	return pieces.size();
+}
+
+std::vector<Piece*> Board::getPieces() const
+{
+	return pieces;
 }
