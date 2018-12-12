@@ -1,7 +1,7 @@
 //	Author: Maciej Kalinowski
 //	Student no: 160473294
 
-#include "Queen.hpp"
+#include "Queen.h"
 #include <iostream>
 #include <cmath>
 #include <algorithm>
@@ -14,7 +14,7 @@ Queen::Queen(Position pos)
 
 Position Queen::move(const Displacement d)
 {
-	if ((Piece::sameFloat(std::fabs(d.x), std::fabs(d.y))) && ((d.x != 0 && d.y != 0)))
+	if (!(Piece::sameFloat(std::fabs(d.x), std::fabs(d.y))) && ((d.x != 0 && d.y != 0)))
 	{
 		std::cout << "Wrong input for Queen: Move cancelled!" << std::endl;
 		return this->getPos();

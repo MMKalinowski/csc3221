@@ -1,10 +1,10 @@
 //	Author: Maciej Kalinowski
 //	Student no: 160473294
 
-#include "Board.hpp"
-#include "Rook.hpp"
-#include "Bishop.hpp"
-#include "Queen.hpp"
+#include "Board.h"
+#include "Rook.h"
+#include "Bishop.h"
+#include "Queen.h"
 
 #include <iostream>
 

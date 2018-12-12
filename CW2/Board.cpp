@@ -1,10 +1,10 @@
 //	Author: Maciej Kalinowski
 //	Student no: 160473294
 
-#include "Board.hpp"
-#include "Rook.hpp"
-#include "Bishop.hpp"
-#include "Queen.hpp"
+#include "Board.h"
+#include "Rook.h"
+#include "Bishop.h"
+#include "Queen.h"
 
 #include <algorithm>
 
@@ -100,7 +100,9 @@ void Board::MovePiece(Piece* const piece, const Displacement d)
 	//if(next.y < 0 || next.y > this->size)
 	next.y = Piece::clip(next.y, .0f, (float)this->size);
 
-	piece->move(d);
+	next = next - current;
+
+	piece->move(next);
 }
 
 float Board::getSize() const

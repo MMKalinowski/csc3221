@@ -1,7 +1,7 @@
 //	Author: Maciej Kalinowski
 //	Student no: 160473294
 
-#include "Piece.hpp"
+#include "Piece.h"
 #include <cmath>
 #include <algorithm>
 
@@ -101,6 +101,11 @@ float Position::distanceTo(const Position other) const
 Position Position::operator+(const Position& rhs) const
 {
 	return Position{ rhs.x+this->x, rhs.y+this->y };
+}
+
+Position Position::operator-(const Position& rhs) const
+{
+	return Position{ this->x - rhs.x, this->y - rhs.y };
 }
 
 bool Position::operator==(const Position& rhs) const

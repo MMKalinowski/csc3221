@@ -28,6 +28,7 @@ struct Position
 	float distanceTo(const Position other) const;
 
 	Position operator+(const Position& rhs) const;
+	Position operator-(const Position& rhs) const;
 	bool operator==(const Position& rhs) const;
 };
 

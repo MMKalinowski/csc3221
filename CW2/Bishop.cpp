@@ -1,7 +1,7 @@
 //	Author: Maciej Kalinowski
 //	Student no: 160473294
 
-#include "Bishop.hpp"
+#include "Bishop.h"
 #include <iostream>
 #include <cmath>
 #include <algorithm>

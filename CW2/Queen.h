@@ -2,14 +2,14 @@
 //	Student no: 160473294
 
 #pragma once
-#include "Piece.hpp"
+#include "Piece.h"
 
-class Rook : public Piece
+class Queen : public Piece
 {
 	public:
-	static int captures;
-	
-	Rook(Position pos);
+	static int captures;	
+
+	Queen(Position pos);
 
 	virtual Position move(Displacement) override;
 	virtual bool collision(const Piece* other) const override;

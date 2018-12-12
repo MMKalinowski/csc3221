@@ -2,7 +2,7 @@
 //	Student no: 160473294
 
 #pragma once
-#include "Piece.hpp"
+#include "Piece.h"
 
 #include <vector>
 
