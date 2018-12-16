@@ -1,7 +1,7 @@
 //	Author: Maciej Kalinowski
 //	Student no: 160473294
 
-#include "Queen.h"
+#include "Queen.hpp"
 #include <iostream>
 #include <cmath>
 #include <algorithm>

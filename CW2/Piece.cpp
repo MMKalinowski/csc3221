@@ -1,7 +1,7 @@
 //	Author: Maciej Kalinowski
 //	Student no: 160473294
 
-#include "Piece.h"
+#include "Piece.hpp"
 #include <cmath>
 #include <algorithm>
 

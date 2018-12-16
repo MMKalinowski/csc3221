@@ -1,7 +1,7 @@
 //	Author: Maciej Kalinowski
 //	Student no: 160473294
 
-#include "Rook.h"
+#include "Rook.hpp"
 #include <iostream>
 #include <algorithm>
 
