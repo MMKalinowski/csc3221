@@ -3,6 +3,7 @@
 
 #include "Piece.hpp"
 #include <cmath>
+#include <algorithm>
 
 Piece::Piece(Position pos, PieceType typ, Shape sha, int size)
 : position(pos)
