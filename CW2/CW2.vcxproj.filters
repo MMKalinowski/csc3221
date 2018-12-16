@@ -15,19 +15,19 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Piece.h">
+    <ClInclude Include="Piece.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Rook.h">
+    <ClInclude Include="Bishop.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Queen.h">
+    <ClInclude Include="Board.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Bishop.h">
+    <ClInclude Include="Queen.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Board.h">
+    <ClInclude Include="Rook.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -117,11 +117,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Bishop.h" />
-    <ClInclude Include="Board.h" />
-    <ClInclude Include="Piece.h" />
-    <ClInclude Include="Queen.h" />
-    <ClInclude Include="Rook.h" />
+    <ClInclude Include="Bishop.hpp" />
+    <ClInclude Include="Board.hpp" />
+    <ClInclude Include="Piece.hpp" />
+    <ClInclude Include="Queen.hpp" />
+    <ClInclude Include="Rook.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bishop.cpp" />

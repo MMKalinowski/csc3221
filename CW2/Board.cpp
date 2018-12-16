@@ -95,6 +95,9 @@ void Board::MovePiece(Piece* const piece, const Displacement d)
 	Position current = piece->getPos();
 	Position next = current + d;
 
+	// PROBLEMATIC CODE
+	// Will break the move if clipped to board size and move diagonal!
+
 	//if(next.x < 0 || next.x > this->size)	
 	next.x = Piece::clip(next.x, .0f, (float)this->size);
 	//if(next.y < 0 || next.y > this->size)
