@@ -6,7 +6,6 @@
 
 
 const static int TYPE_NUMBER = 3;
-const static float DELTA_FLOAT = 0.001f;
 
 enum class PieceType : int
 {
@@ -45,6 +44,7 @@ class Piece
 	virtual Position move(const Displacement) = 0;
 	virtual bool collision(const Piece* other) const = 0;
 	virtual void captured() const = 0;
+	virtual Displacement generateMove(int boardSize) const = 0;
 
 	Position getPos() const;
 	PieceType getType() const;

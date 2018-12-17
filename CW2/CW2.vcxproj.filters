@@ -30,6 +30,9 @@
     <ClInclude Include="Rook.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="fmath.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Piece.cpp">

@@ -119,6 +119,7 @@
   <ItemGroup>
     <ClInclude Include="Bishop.hpp" />
     <ClInclude Include="Board.hpp" />
+    <ClInclude Include="fmath.hpp" />
     <ClInclude Include="Piece.hpp" />
     <ClInclude Include="Queen.hpp" />
     <ClInclude Include="Rook.hpp" />

@@ -2,6 +2,7 @@
 //	Student no: 160473294
 
 #include "Rook.hpp"
+#include "fmath.hpp"
 #include <iostream>
 #include <algorithm>
 
@@ -91,6 +92,18 @@ bool Rook::collision(const Piece* other) const
 void Rook::captured() const
 {
 	captures++;
+}
+
+Displacement Rook::generateMove(int boardSize) const
+{
+	Displacement d;
+	int decide = std::rand() % 2;
+
+	float move = fmath::randFloatRange(-boardSize, boardSize);
+
+	decide > 0 ? d.x = move : d.y = move;
+	decide > 0 ? d.y = 0 : d.x = 0;
+	return d;
 }
 
 int Rook::noOfCaptures(){

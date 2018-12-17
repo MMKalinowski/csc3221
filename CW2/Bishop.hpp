@@ -14,6 +14,7 @@ class Bishop : public Piece
 	virtual Position move(Displacement) override;
 	virtual bool collision(const Piece* other) const override;
 	virtual void captured() const override;
+	virtual Displacement generateMove() const override;
 
 	static int noOfCaptures();
 
